@@ -1,7 +1,14 @@
-<header-component></header-component>
-<div class="p-6 text-center">
-  <h1 class="text-2xl font-bold mb-4">Detalhes do Plano</h1>
-  <p *ngIf="planType" class="text-lg">Você está visualizando os detalhes do plano: <strong>{{ planType }}</strong></p>
-  <a routerLink="/" class="text-blue-600">Voltar</a>
+<div class="flex flex-col min-h-screen">
+  <lib-header-component></lib-header-component>
+
+  <!-- Container do conteúdo central -->
+  <div class="flex-grow p-6 text-center">
+    <h1 class="text-2xl font-bold mb-4">Detalhes do Plano</h1>
+    <p *ngIf="planType" class="text-lg">
+      Você está visualizando os detalhes do plano: <strong>{{ planType }}</strong>
+    </p>
+    <a routerLink="/" class="text-blue-600">Voltar</a>
+  </div>
+
+  <lib-footer-component></lib-footer-component>
 </div>
-<!-- <footer-component></footer-component> -->

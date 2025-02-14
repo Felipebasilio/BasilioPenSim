@@ -1,10 +1,11 @@
 import { Component, ViewEncapsulation } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
+import { GlobalComponentsModule } from '@basilio-pensim/global';
 
 @Component({
   selector: 'app-details',
-  imports: [CommonModule],
+  imports: [CommonModule, GlobalComponentsModule],
   templateUrl: './details.component.html',
   styles: [],
   encapsulation: ViewEncapsulation.None,

@@ -1,22 +1,26 @@
-<lib-header-component></lib-header-component>
-<div class="p-6">
-  <h1 class="text-2xl font-bold mb-4 text-center">Simulação de Previdência</h1>
-  <form class="max-w-lg mx-auto bg-gray-100 p-6 rounded-lg shadow">
-    <label for="age" class="block mb-2">Idade:</label>
-    <lib-input-component id="age" [(ngModel)]="age" type="number"></lib-input-component>
+<div class="flex flex-col min-h-screen">
+  <lib-header-component></lib-header-component>
 
-    <label for="contribution" class="block mt-4 mb-2">Contribuição Mensal (R$):</label>
-    <lib-input-component id="contribution" [(ngModel)]="contribution" type="number"></lib-input-component>
+  <div class="flex-grow p-6">
+    <h1 class="text-2xl font-bold mb-4 text-center">Simulação de Previdência</h1>
+    <form class="max-w-lg mx-auto bg-gray-100 p-6 rounded-lg shadow">
+      <label for="age" class="block mb-2">Idade:</label>
+      <lib-input-component id="age" [(ngModel)]="age" type="number"></lib-input-component>
 
-    <label for="years" class="block mt-4 mb-2">Período de Contribuição (anos):</label>
-    <lib-input-component id="years" [(ngModel)]="years" type="number"></lib-input-component>
+      <label for="contribution" class="block mt-4 mb-2">Contribuição Mensal (R$):</label>
+      <lib-input-component id="contribution" [(ngModel)]="contribution" type="number"></lib-input-component>
 
-    <lib-button-component (click)="calculate()">Calcular</lib-button-component>
-  </form>
+      <label for="years" class="block mt-4 mb-2">Período de Contribuição (anos):</label>
+      <lib-input-component id="years" [(ngModel)]="years" type="number"></lib-input-component>
 
-  <div *ngIf="result" class="text-center mt-6">
-    <p class="text-lg">Projeção estimada ao final do período:</p>
-    <p class="text-3xl font-bold text-green-600">R$ {{ result | number: '1.2-2' }}</p>
+      <lib-button-component (click)="calculate()">Calcular</lib-button-component>
+    </form>
+
+    <div *ngIf="result" class="text-center mt-6">
+      <p class="text-lg">Projeção estimada ao final do período:</p>
+      <p class="text-3xl font-bold text-green-600">R$ {{ result | number: '1.2-2' }}</p>
+    </div>
   </div>
+
+  <lib-footer-component></lib-footer-component>
 </div>
-<lib-footer-component></lib-footer-component>
