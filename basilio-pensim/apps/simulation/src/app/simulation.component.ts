@@ -1,9 +1,15 @@
-import { Component } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { GlobalComponentsModule } from '@basilio-pensim/global';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-simulation',
   templateUrl: './simulation.component.html',
-  standalone: true
+  imports: [FormsModule, CommonModule, GlobalComponentsModule],
+
+  styles: [],
+  encapsulation: ViewEncapsulation.None,
 })
 export class SimulationComponent {
   age!: number;
@@ -14,6 +20,8 @@ export class SimulationComponent {
 
   calculate() {
     const months = this.years * 12;
-    this.result = this.contribution * ((Math.pow(1 + this.rate / 12, months) - 1) / (this.rate / 12));
+    this.result =
+      this.contribution *
+      ((Math.pow(1 + this.rate / 12, months) - 1) / (this.rate / 12));
   }
 }

@@ -1,9 +1,10 @@
 import { Component, ViewEncapsulation } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { GlobalComponentsModule } from '@basilio-pensim/global';
 
 @Component({
   selector: 'app-home',
-  imports: [CommonModule],
+  imports: [CommonModule, GlobalComponentsModule],
   templateUrl: './home.component.html',
   styles: [],
   encapsulation: ViewEncapsulation.None,
