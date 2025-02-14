@@ -1,0 +1,8 @@
+<button 
+  class="px-4 py-2 rounded-md text-white"
+  [ngClass]="{
+    'bg-blue-500 hover:bg-blue-600': type === 'primary',
+    'bg-gray-500 hover:bg-gray-600': type === 'secondary'
+  }">
+  <ng-content></ng-content>
+</button>
