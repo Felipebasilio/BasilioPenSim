@@ -1,10 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-details',
+  imports: [CommonModule],
   templateUrl: './details.component.html',
-  standalone: true
+  styles: [],
+  encapsulation: ViewEncapsulation.None,
 })
 export class DetailsComponent {
   planType: string | null;
