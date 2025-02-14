@@ -1,0 +1,22 @@
+<header-component></header-component>
+<div class="p-6">
+  <h1 class="text-2xl font-bold mb-4 text-center">Simulação de Previdência</h1>
+  <form class="max-w-lg mx-auto bg-gray-100 p-6 rounded-lg shadow">
+    <label for="age" class="block mb-2">Idade:</label>
+    <input-component id="age" [(ngModel)]="age" type="number"></input-component>
+
+    <label for="contribution" class="block mt-4 mb-2">Contribuição Mensal (R$):</label>
+    <input-component id="contribution" [(ngModel)]="contribution" type="number"></input-component>
+
+    <label for="years" class="block mt-4 mb-2">Período de Contribuição (anos):</label>
+    <input-component id="years" [(ngModel)]="years" type="number"></input-component>
+
+    <button-component (click)="calculate()">Calcular</button-component>
+  </form>
+
+  <div *ngIf="result" class="text-center mt-6">
+    <p class="text-lg">Projeção estimada ao final do período:</p>
+    <p class="text-3xl font-bold text-green-600">R$ {{ result | number: '1.2-2' }}</p>
+  </div>
+</div>
+<footer-component></footer-component>
