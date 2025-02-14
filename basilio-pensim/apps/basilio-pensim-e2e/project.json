@@ -1,0 +1,9 @@
+{
+  "name": "basilio-pensim-e2e",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/basilio-pensim-e2e/src",
+  "implicitDependencies": ["basilio-pensim"],
+  "// targets": "to see all targets run: nx show project basilio-pensim-e2e --web",
+  "targets": {}
+}
