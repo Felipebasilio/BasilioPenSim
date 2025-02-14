@@ -2,26 +2,36 @@ import { Component, ViewEncapsulation } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { GlobalComponentsModule } from '@basilio-pensim/global';
 import { FormsModule } from '@angular/forms';
+import { SimulationService } from './services/simulation.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-simulation',
   templateUrl: './simulation.component.html',
   imports: [FormsModule, CommonModule, GlobalComponentsModule],
-
+  providers: [SimulationService],
   styles: [],
   encapsulation: ViewEncapsulation.None,
 })
+
 export class SimulationComponent {
-  age!: number;
-  contribution!: number;
-  years!: number;
-  rate = 0.05; // Taxa de juros fixa
-  result!: number;
+  age = 0;
+  contribution = 0;
+  years = 0;
+  result$: Observable<number | null>;
+
+  constructor(private simulationService: SimulationService) {
+    this.result$ = this.simulationService.getResult();
+  }
 
   calculate() {
-    const months = this.years * 12;
-    this.result =
-      this.contribution *
-      ((Math.pow(1 + this.rate / 12, months) - 1) / (this.rate / 12));
+    console.log("Botão Calcular Clicado!");
+    console.log(`Enviando para simulação: Age: ${this.age}, Contribution: ${this.contribution}, Years: ${this.years}`);
+
+    this.simulationService.setAge(this.age);
+    this.simulationService.setContribution(this.contribution);
+    this.simulationService.setYears(this.years);
+    
+    this.simulationService.calculateSimulation();
   }
 }

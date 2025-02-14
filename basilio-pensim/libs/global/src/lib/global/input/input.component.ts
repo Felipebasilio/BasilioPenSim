@@ -11,6 +11,12 @@ import { CommonModule } from '@angular/common';
 export class InputComponent {
   @Input() type = 'text';
   @Input() placeholder = '';
-  @Input() value = ''; // Adiciona a propriedade `value`
-  @Output() valueChange = new EventEmitter(); // Emissor de eventos para mudanças de valor
+
+  @Input() value!: number; // Entrada de valor
+  @Output() valueChange = new EventEmitter<number>(); // Emite o valor atualizado
+
+  onInputChange(event: Event) {
+    const newValue = (event.target as HTMLInputElement).valueAsNumber;
+    this.valueChange.emit(newValue); // Notifica o componente pai sobre a mudança
+  }
 }
